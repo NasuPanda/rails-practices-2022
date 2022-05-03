@@ -1,3 +1,3 @@
 # hello_rails
 
-this is first app.
+1章、イントロ用のアプリ。
