@@ -1,90 +1,95 @@
-  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
-  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateBooks (20220503052904)
+Migrating to CreateBooks (20220503081828)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "published_on" varchar, "date" varchar, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503052904"]]
-  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-03 05:30:48.241605"], ["updated_at", "2022-05-03 05:30:48.241605"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "published_on" date, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503081828"]]
   [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Migrating to CreatePublishers (20220503082125)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mBook Create (1.4ms)[0m  [1m[32mINSERT INTO "books" ("name", "published_on", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "book 1"], ["published_on", "2020-11-25 00:00:00 +0900"], ["price", 1000], ["created_at", "2022-05-03 05:34:39.236296"], ["updated_at", "2022-05-03 05:34:39.236296"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "publishers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503082125"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAuthors (20220503082140)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "penname" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503082140"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-03 08:21:54.657669"], ["updated_at", "2022-05-03 08:21:54.657669"]]
   [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("name", "published_on", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "book 2"], ["published_on", "2020-10-25 00:00:00 +0900"], ["price", 2000], ["created_at", "2022-05-03 05:34:39.252506"], ["updated_at", "2022-05-03 05:34:39.252506"]]
-  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("name", "published_on", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "book 3"], ["published_on", "2020-09-25 00:00:00 +0900"], ["price", 3000], ["created_at", "2022-05-03 05:34:39.257837"], ["updated_at", "2022-05-03 05:34:39.257837"]]
-  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("name", "published_on", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "book 4"], ["published_on", "2020-08-25 00:00:00 +0900"], ["price", 4000], ["created_at", "2022-05-03 05:34:39.263987"], ["updated_at", "2022-05-03 05:34:39.263987"]]
-  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("name", "published_on", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "book 5"], ["published_on", "2020-07-25 00:00:00 +0900"], ["price", 5000], ["created_at", "2022-05-03 05:34:39.268973"], ["updated_at", "2022-05-03 05:34:39.268973"]]
-  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" LIMIT ?[0m  [["LIMIT", 11]]
-  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."nmae" = ? LIMIT ?[0m  [["nmae", "Book 1"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "Book 1"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "Book 2"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book 2"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."name" = ? LIMIT ?[0m  [["name", "book {i}"], ["LIMIT", 1]]
-  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (price > 3000) ORDER BY "books"."name" ASC LIMIT ?[0m  [["LIMIT", 3]]
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (price > 3000) ORDER BY "books"."name" ASC LIMIT ?[0m  [["LIMIT", 3]]
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (price > 3000) ORDER BY "books"."name" ASC LIMIT ?[0m  [["LIMIT", 3]]
-  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (price > 3000) ORDER BY "books"."name" ASC LIMIT ?[0m  [["LIMIT", 3]]
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (price > 3000) ORDER BY "books"."name" ASC LIMIT ?[0m  [["LIMIT", 3]]
-  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."price" = ? LIMIT ?[0m  [["price", 10000], ["LIMIT", 1]]
-  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" LIMIT ?[0m  [["LIMIT", 11]]
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (name like '%ruby%') AND "books"."price" = ? LIMIT ?[0m  [["price", 10000], ["LIMIT", 1]]
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE (name like '%ruby%') LIMIT ?[0m  [["LIMIT", 11]]
-  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreatePublishers (20220503070633)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPublisherIdToBooks (20220503082218)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "publishers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "address" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503070633"]]
-  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
-Migrating to CreateAuthors (20220503070656)
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at")
+                     SELECT "id","name","published_on","price","created_at","updated_at" FROM "books"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","price","created_at","updated_at")
+                     SELECT "id","name","published_on","price","created_at","updated_at" FROM "abooks"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "abooks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer NOT NULL, CONSTRAINT "fk_rails_d7ae2b039e"
+FOREIGN KEY ("publisher_id")
+  REFERENCES "publishers" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "abooks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "abooks"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503082218"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBookAuthors (20220503082415)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "penname" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503070656"]]
-  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "book_authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "book_id" integer NOT NULL, "author_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b23f3934c1"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+, CONSTRAINT "fk_rails_0c0759568d"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_book_id" ON "book_authors" ("book_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_author_id" ON "book_authors" ("author_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503082415"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (2.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
   [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
   [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
@@ -93,107 +98,637 @@ Migrating to CreateAuthors (20220503070656)
   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "authors"[0m
-  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "penname" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "books"[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "published_on" varchar, "date" varchar, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "publishers"[0m
-  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "publishers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "address" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
-  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220503070656)[0m
-  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
-(20220503052904),
-(20220503070633);
-
-[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-03 07:10:25.775140"], ["updated_at", "2022-05-03 07:10:25.775140"]]
-  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "5fa26797933e4ed879f18399eff668d3d8555566"], ["created_at", "2022-05-03 07:10:25.782586"], ["updated_at", "2022-05-03 07:10:25.782586"]]
-  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "authors"[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "penname" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "books"[0m
-  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "published_on" varchar, "date" varchar, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "penname" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "book_authors"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "book_authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "book_id" integer NOT NULL, "author_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_author_id" ON "book_authors" ("author_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_book_id" ON "book_authors" ("book_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "books"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "published_on" date, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "publishers"[0m
-  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "publishers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "address" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
-  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220503070656)[0m
-  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
-(20220503052904),
-(20220503070633);
-
-[0m
-  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "publishers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-03 07:10:25.806970"], ["updated_at", "2022-05-03 07:10:25.806970"]]
-  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2022-05-03 07:10:25.811968"], ["key", "environment"]]
-  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
-  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "5fa26797933e4ed879f18399eff668d3d8555566"], ["created_at", "2022-05-03 07:10:25.816984"], ["updated_at", "2022-05-03 07:10:25.816984"]]
-  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to AddPublisherIdToBooks (20220503070819)
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "books" ADD "publisher_id" integer[0m
-  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
   [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
-  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abook_authors" ("id" integer NOT NULL PRIMARY KEY, "book_id" integer NOT NULL, "author_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abook_authors_on_book_id" ON "abook_authors" ("book_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abook_authors_on_author_id" ON "abook_authors" ("author_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abook_authors" ("id","book_id","author_id","created_at","updated_at")
+                     SELECT "id","book_id","author_id","created_at","updated_at" FROM "book_authors"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "book_authors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "book_authors" ("id" integer NOT NULL PRIMARY KEY, "book_id" integer NOT NULL, "author_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0c0759568d"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_author_id" ON "book_authors" ("author_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_book_id" ON "book_authors" ("book_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "book_authors" ("id","book_id","author_id","created_at","updated_at")
+                     SELECT "id","book_id","author_id","created_at","updated_at" FROM "abook_authors"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "abook_authors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" varchar DEFAULT NULL, "date" varchar DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abook_authors" ("id" integer NOT NULL PRIMARY KEY, "book_id" integer NOT NULL, "author_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abook_authors_on_book_id" ON "abook_authors" ("book_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abook_authors_on_author_id" ON "abook_authors" ("author_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "abook_authors" ("id","book_id","author_id","created_at","updated_at")
+                     SELECT "id","book_id","author_id","created_at","updated_at" FROM "book_authors"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "book_authors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "book_authors" ("id" integer NOT NULL PRIMARY KEY, "book_id" integer NOT NULL, "author_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0c0759568d"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_b23f3934c1"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_author_id" ON "book_authors" ("author_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_book_id" ON "book_authors" ("book_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "book_authors" ("id","book_id","author_id","created_at","updated_at")
+                     SELECT "id","book_id","author_id","created_at","updated_at" FROM "abook_authors"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "abook_authors"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer NOT NULL)[0m
   [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
-  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","date","price","created_at","updated_at","publisher_id")
-                     SELECT "id","name","published_on","date","price","created_at","updated_at","publisher_id" FROM "books"[0m
-  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE "books"[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" varchar DEFAULT NULL, "date" varchar DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_d7ae2b039e"
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer NOT NULL, CONSTRAINT "fk_rails_d7ae2b039e"
 FOREIGN KEY ("publisher_id")
   REFERENCES "publishers" ("id")
 )[0m
   [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
-  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","date","price","created_at","updated_at","publisher_id")
-                     SELECT "id","name","published_on","date","price","created_at","updated_at","publisher_id" FROM "abooks"[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "abooks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "abooks"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220503082415)[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220503081828),
+(20220503082125),
+(20220503082140),
+(20220503082218);
+
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-03 08:27:02.303172"], ["updated_at", "2022-05-03 08:27:02.303172"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "9fc8b3a672f45cf253ca3f838198d2f4f2e671d3"], ["created_at", "2022-05-03 08:27:02.310214"], ["updated_at", "2022-05-03 08:27:02.310214"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "authors"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "penname" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "book_authors"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "book_authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "book_id" integer NOT NULL, "author_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_author_id" ON "book_authors" ("author_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_book_id" ON "book_authors" ("book_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "books"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "published_on" date, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "publishers"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "publishers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abook_authors" ("id" integer NOT NULL PRIMARY KEY, "book_id" integer NOT NULL, "author_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abook_authors_on_book_id" ON "abook_authors" ("book_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abook_authors_on_author_id" ON "abook_authors" ("author_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "abook_authors" ("id","book_id","author_id","created_at","updated_at")
+                     SELECT "id","book_id","author_id","created_at","updated_at" FROM "book_authors"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "book_authors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "book_authors" ("id" integer NOT NULL PRIMARY KEY, "book_id" integer NOT NULL, "author_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0c0759568d"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_author_id" ON "book_authors" ("author_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_book_id" ON "book_authors" ("book_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "book_authors" ("id","book_id","author_id","created_at","updated_at")
+                     SELECT "id","book_id","author_id","created_at","updated_at" FROM "abook_authors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "abook_authors"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abook_authors" ("id" integer NOT NULL PRIMARY KEY, "book_id" integer NOT NULL, "author_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abook_authors_on_book_id" ON "abook_authors" ("book_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abook_authors_on_author_id" ON "abook_authors" ("author_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "abook_authors" ("id","book_id","author_id","created_at","updated_at")
+                     SELECT "id","book_id","author_id","created_at","updated_at" FROM "book_authors"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "book_authors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "book_authors" ("id" integer NOT NULL PRIMARY KEY, "book_id" integer NOT NULL, "author_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0c0759568d"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+, CONSTRAINT "fk_rails_b23f3934c1"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_author_id" ON "book_authors" ("author_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_book_id" ON "book_authors" ("book_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "book_authors" ("id","book_id","author_id","created_at","updated_at")
+                     SELECT "id","book_id","author_id","created_at","updated_at" FROM "abook_authors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "abook_authors"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer NOT NULL, CONSTRAINT "fk_rails_d7ae2b039e"
+FOREIGN KEY ("publisher_id")
+  REFERENCES "publishers" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "abooks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "abooks"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220503082415)[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220503081828),
+(20220503082125),
+(20220503082140),
+(20220503082218);
+
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-03 08:27:02.410715"], ["updated_at", "2022-05-03 08:27:02.410715"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2022-05-03 08:27:02.416708"], ["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "9fc8b3a672f45cf253ca3f838198d2f4f2e671d3"], ["created_at", "2022-05-03 08:27:02.424005"], ["updated_at", "2022-05-03 08:27:02.424005"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBooks (20220503081828)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "published_on" date, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503081828"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePublishers (20220503082125)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "publishers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503082125"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAuthors (20220503082140)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "penname" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503082140"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPublisherIdToBooks (20220503082218)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "books" ADD "publisher_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_d7ae2b039e"
+FOREIGN KEY ("publisher_id")
+  REFERENCES "publishers" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "abooks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "abooks"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPublisherIdToBooks (20220503082218)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "books" ADD "publisher_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_d7ae2b039e"
+FOREIGN KEY ("publisher_id")
+  REFERENCES "publishers" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "abooks"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "abooks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPublisherIdToBooks (20220503082218)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "books" ADD "publisher_id" integer[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_d7ae2b039e"
+FOREIGN KEY ("publisher_id")
+  REFERENCES "publishers" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "abooks"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "abooks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-03 08:28:57.086360"], ["updated_at", "2022-05-03 08:28:57.086360"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPublisherIdToBooks (20220503082218)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "books" ADD "publisher_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_d7ae2b039e"
+FOREIGN KEY ("publisher_id")
+  REFERENCES "publishers" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "abooks"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "abooks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPublisherIdToBooks (20220503082218)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "books" ADD "publisher_id" integer[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_d7ae2b039e"
+FOREIGN KEY ("publisher_id")
+  REFERENCES "publishers" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "abooks"[0m
   [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "abooks"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
   [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
-  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
-  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
-  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" varchar DEFAULT NULL, "date" varchar DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
-  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","date","price","created_at","updated_at","publisher_id")
-                     SELECT "id","name","published_on","date","price","created_at","updated_at","publisher_id" FROM "books"[0m
-  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "books"[0m
-  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" varchar DEFAULT NULL, "date" varchar DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer NOT NULL, CONSTRAINT "fk_rails_d7ae2b039e"
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBooks (20220503081828)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "published_on" date, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503081828"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePublishers (20220503082125)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "publishers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503082125"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAuthors (20220503082140)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "penname" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503082140"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPublisherIdToBooks (20220503082218)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "books" ADD "publisher_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_d7ae2b039e"
 FOREIGN KEY ("publisher_id")
   REFERENCES "publishers" ("id")
 )[0m
   [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
-  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","date","price","created_at","updated_at","publisher_id")
-                     SELECT "id","name","published_on","date","price","created_at","updated_at","publisher_id" FROM "abooks"[0m
-  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "abooks"[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "abooks"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "abooks"[0m
   [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
-  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503070819"]]
-  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (1.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-03 08:33:00.950782"], ["updated_at", "2022-05-03 08:33:00.950782"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBooks (20220503081828)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "published_on" date, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503081828"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePublishers (20220503082125)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "publishers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503082125"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAuthors (20220503082140)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "penname" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503082140"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPublisherIdToBooks (20220503082218)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "books" ADD "publisher_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_d7ae2b039e"
+FOREIGN KEY ("publisher_id")
+  REFERENCES "publishers" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "abooks"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "abooks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "abooks" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_abooks_on_publisher_id" ON "abooks" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "abooks" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "books"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "books"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "published_on" date DEFAULT NULL, "price" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "publisher_id" integer NOT NULL, CONSTRAINT "fk_rails_d7ae2b039e"
+FOREIGN KEY ("publisher_id")
+  REFERENCES "publishers" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_books_on_publisher_id" ON "books" ("publisher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "books" ("id","name","published_on","price","created_at","updated_at","publisher_id")
+                     SELECT "id","name","published_on","price","created_at","updated_at","publisher_id" FROM "abooks"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "abooks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503082218"]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBookAuthors (20220503082415)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "book_authors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "book_id" integer NOT NULL, "author_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b23f3934c1"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+, CONSTRAINT "fk_rails_0c0759568d"
+FOREIGN KEY ("author_id")
+  REFERENCES "authors" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_book_id" ON "book_authors" ("book_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_book_authors_on_author_id" ON "book_authors" ("author_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220503082415"]]
+  [1m[35m (9.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-03 08:33:07.630084"], ["updated_at", "2022-05-03 08:33:07.630084"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Load (0.2ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (1.6ms)[0m  [1m[32mINSERT INTO "authors" ("name", "penname", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Alice"], ["penname", "A"], ["created_at", "2022-05-03 08:34:42.154902"], ["updated_at", "2022-05-03 08:34:42.154902"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAuthor Create (0.7ms)[0m  [1m[32mINSERT INTO "authors" ("name", "penname", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Bob"], ["penname", "B"], ["created_at", "2022-05-03 08:35:08.300370"], ["updated_at", "2022-05-03 08:35:08.300370"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "book_authors" ON "books"."id" = "book_authors"."book_id" WHERE "book_authors"."author_id" = ? LIMIT ?[0m  [["author_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Create (0.8ms)[0m  [1m[32mINSERT INTO "publishers" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "gihyo"], ["address", "Tokyo"], ["created_at", "2022-05-03 10:45:17.399366"], ["updated_at", "2022-05-03 10:45:17.399366"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPublisher Load (0.4ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" ORDER BY "publishers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Load (0.2ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBook Create (1.1ms)[0m  [1m[32mINSERT INTO "books" ("name", "published_on", "price", "created_at", "updated_at", "publisher_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "WonderLand"], ["published_on", "2020-11-25"], ["price", 2000], ["created_at", "2022-05-03 10:45:46.446030"], ["updated_at", "2022-05-03 10:45:46.446030"], ["publisher_id", 1]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBookAuthor Create (1.3ms)[0m  [1m[32mINSERT INTO "book_authors" ("book_id", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["book_id", 1], ["author_id", 1], ["created_at", "2022-05-03 10:45:46.461015"], ["updated_at", "2022-05-03 10:45:46.461015"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "book_authors" ON "books"."id" = "book_authors"."book_id" WHERE "book_authors"."author_id" = ? LIMIT ?[0m  [["author_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPublisher Load (0.3ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("name", "published_on", "price", "created_at", "updated_at", "publisher_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Bob's quest"], ["published_on", "2020-10-25"], ["price", 1500], ["created_at", "2022-05-03 10:46:51.772775"], ["updated_at", "2022-05-03 10:46:51.772775"], ["publisher_id", 1]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBookAuthor Create (0.7ms)[0m  [1m[32mINSERT INTO "book_authors" ("book_id", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["book_id", 2], ["author_id", 2], ["created_at", "2022-05-03 10:46:51.777852"], ["updated_at", "2022-05-03 10:46:51.777852"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "book_authors" ON "books"."id" = "book_authors"."book_id" WHERE "book_authors"."author_id" = ? LIMIT ?[0m  [["author_id", 2], ["LIMIT", 11]]
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "book_authors" ON "books"."id" = "book_authors"."book_id" WHERE "book_authors"."author_id" = ? LIMIT ?[0m  [["author_id", 2], ["LIMIT", 11]]
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "book_authors" ON "books"."id" = "book_authors"."book_id" WHERE "book_authors"."author_id" = ? LIMIT ?[0m  [["author_id", 1], ["LIMIT", 11]]
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "book_authors" ON "authors"."id" = "book_authors"."author_id" WHERE "book_authors"."book_id" = ? LIMIT ?[0m  [["book_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBookAuthor Create (0.9ms)[0m  [1m[32mINSERT INTO "book_authors" ("book_id", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["book_id", 1], ["author_id", 2], ["created_at", "2022-05-03 10:47:39.115635"], ["updated_at", "2022-05-03 10:47:39.115635"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "book_authors" ON "authors"."id" = "book_authors"."author_id" WHERE "book_authors"."book_id" = ? LIMIT ?[0m  [["book_id", 1], ["LIMIT", 11]]
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" INNER JOIN "book_authors" ON "authors"."id" = "book_authors"."author_id" WHERE "book_authors"."book_id" = ? LIMIT ?[0m  [["book_id", 1], ["LIMIT", 11]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPublisher Load (0.2ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO "books" ("name", "published_on", "price", "created_at", "updated_at", "publisher_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Cacy's magazine"], ["published_on", "2022-04-21"], ["price", 800], ["created_at", "2022-05-03 10:52:04.809902"], ["updated_at", "2022-05-03 10:52:04.809902"], ["publisher_id", 1]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m

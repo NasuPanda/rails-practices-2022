@@ -1,5 +1,5 @@
 current directory: /Users/westen/rdev/rails-practices-2022/perfect-RoR/book_admin/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
-/Users/westen/.anyenv/envs/rbenv/versions/2.7.1/bin/ruby -I /Users/westen/.anyenv/envs/rbenv/versions/2.7.1/lib/ruby/2.7.0 -r ./siteconf20220503-942-13k8o8x.rb extconf.rb
+/Users/westen/.anyenv/envs/rbenv/versions/2.7.1/bin/ruby -I /Users/westen/.anyenv/envs/rbenv/versions/2.7.1/lib/ruby/2.7.0 -r ./siteconf20220503-32218-y4m42n.rb extconf.rb
 creating Makefile
 
 current directory: /Users/westen/rdev/rails-practices-2022/perfect-RoR/book_admin/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
@@ -43,4 +43,4 @@ linking shared-object skiptrace/internal/cruby.bundle
 
 current directory: /Users/westen/rdev/rails-practices-2022/perfect-RoR/book_admin/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
 make "DESTDIR=" install
-/usr/local/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20220503-942-izk8n1/skiptrace/internal
+/usr/local/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20220503-32218-z6ih3p/skiptrace/internal

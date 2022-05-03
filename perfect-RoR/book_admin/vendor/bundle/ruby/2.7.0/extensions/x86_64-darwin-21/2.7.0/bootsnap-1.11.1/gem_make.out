@@ -1,5 +1,5 @@
 current directory: /Users/westen/rdev/rails-practices-2022/perfect-RoR/book_admin/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.11.1/ext/bootsnap
-/Users/westen/.anyenv/envs/rbenv/versions/2.7.1/bin/ruby -I /Users/westen/.anyenv/envs/rbenv/versions/2.7.1/lib/ruby/2.7.0 -r ./siteconf20220503-942-3xz0im.rb extconf.rb
+/Users/westen/.anyenv/envs/rbenv/versions/2.7.1/bin/ruby -I /Users/westen/.anyenv/envs/rbenv/versions/2.7.1/lib/ruby/2.7.0 -r ./siteconf20220503-32218-1v62gng.rb extconf.rb
 creating Makefile
 
 current directory: /Users/westen/rdev/rails-practices-2022/perfect-RoR/book_admin/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.11.1/ext/bootsnap
@@ -367,4 +367,4 @@ linking shared-object bootsnap/bootsnap.bundle
 
 current directory: /Users/westen/rdev/rails-practices-2022/perfect-RoR/book_admin/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.11.1/ext/bootsnap
 make "DESTDIR=" install
-/usr/local/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20220503-942-la0x3p/bootsnap
+/usr/local/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20220503-32218-1fnkzsp/bootsnap

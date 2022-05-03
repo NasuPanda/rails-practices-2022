@@ -1,5 +1,5 @@
 current directory: /Users/westen/rdev/rails-practices-2022/perfect-RoR/book_admin/vendor/bundle/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
-/Users/westen/.anyenv/envs/rbenv/versions/2.7.1/bin/ruby -I /Users/westen/.anyenv/envs/rbenv/versions/2.7.1/lib/ruby/2.7.0 -r ./siteconf20220503-942-vbr4sn.rb extconf.rb
+/Users/westen/.anyenv/envs/rbenv/versions/2.7.1/bin/ruby -I /Users/westen/.anyenv/envs/rbenv/versions/2.7.1/lib/ruby/2.7.0 -r ./siteconf20220503-32218-13i8z3r.rb extconf.rb
 checking for rb_block_call()... yes
 checking for rb_ary_subseq()... yes
 creating Makefile
@@ -14,4 +14,4 @@ linking shared-object racc/cparse.bundle
 
 current directory: /Users/westen/rdev/rails-practices-2022/perfect-RoR/book_admin/vendor/bundle/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
 make "DESTDIR=" install
-/usr/local/bin/ginstall -c -m 0755 cparse.bundle ./.gem.20220503-942-183hjx1/racc
+/usr/local/bin/ginstall -c -m 0755 cparse.bundle ./.gem.20220503-32218-12fzw7/racc
