@@ -1,0 +1,9 @@
+desc 'Hello, Rake task'
+task :hello do
+  puts 'hello, Rake!!!'
+end
+
+desc 'Goodmorning, Rake task'
+task :gm do
+  puts 'Good morning, Rake!!!'
+end
