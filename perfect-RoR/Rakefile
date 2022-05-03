@@ -1,9 +1,12 @@
+# Rakefileという名称でRakeタスクを作成する
+# リリース作業などの定形処理をRakeタスクとして登録する
+
 desc 'Hello, Rake task'
 task :hello do
   puts 'hello, Rake!!!'
 end
 
-desc 'Goodmorning, Rake task'
-task :gm do
-  puts 'Good morning, Rake!!!'
+desc 'ここにタスクの説明を記述'
+task :task_name do
+  puts '実行する内容を記述'
 end
