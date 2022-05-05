@@ -869,3 +869,26 @@ Processing by BooksController#show as HTML
 Completed 200 OK in 57ms (Views: 53.5ms | ActiveRecord: 0.7ms | Allocations: 5378)
 
 
+Started GET "/books/1" for ::1 at 2022-05-05 10:43:20 +0900
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms | Allocations: 14441)
+
+
+  
+NoMethodError (undefined method `user_agent=' for #<ActionDispatch::Request:0x00007fac2c33cd88>
+Did you mean?  user_agent):
+  
+app/controllers/application_controller.rb:6:in `detect_mobile_variant'
+Started GET "/books/1" for ::1 at 2022-05-05 10:43:51 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:24:in `set_book'
+  Rendering books/show.html+mobile.erb within layouts/application
+  Rendered books/show.html+mobile.erb within layouts/application (Duration: 1.0ms | Allocations: 121)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 21.3ms | ActiveRecord: 1.3ms | Allocations: 12099)
+
+
