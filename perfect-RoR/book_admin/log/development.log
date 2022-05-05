@@ -753,3 +753,119 @@ Migrating to AddStatusToBooks (20220503234611)
   [1m[36mPublisher Load (0.1ms)[0m  [1m[34mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mBook Update (0.6ms)[0m  [1m[33mUPDATE "books" SET "updated_at" = ?, "sales_status" = ? WHERE "books"."id" = ?[0m  [["updated_at", "2022-05-03 23:56:27.925849"], ["sales_status", 2], ["id", 4]]
   [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220505004220)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220505004220"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-05-05 10:16:31 +0900
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering vendor/bundle/ruby/2.7.0/gems/railties-6.0.4.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered vendor/bundle/ruby/2.7.0/gems/railties-6.0.4.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 19.8ms | Allocations: 406)
+Completed 200 OK in 37ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 2323)
+
+
+Started GET "/books/1" for ::1 at 2022-05-05 10:16:39 +0900
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:25:in `set_book'
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 137)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/westen/rdev/rails-practices-2022/perfect-RoR/book_admin/public/packs
+[Webpacker] Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+
+[Webpacker] Hash: dfb911f707e4dd9f9a61
+Version: webpack 4.46.0
+Time: 1462ms
+Built at: 2022/05/05 10:16:42
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9cbb7da964b535061b10.js   87.9 KiB  application  [emitted] [immutable]  application
+js/application-9cbb7da964b535061b10.js.map   97.1 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-9cbb7da964b535061b10.js js/application-9cbb7da964b535061b10.js.map
+[./app/javascript/packs/application.js] 685 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 2 hidden modules
+
+Completed 200 OK in 3456ms (Views: 3420.9ms | ActiveRecord: 1.6ms | Allocations: 30212)
+
+
+Started GET "/" for ::1 at 2022-05-05 10:17:29 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering vendor/bundle/ruby/2.7.0/gems/railties-6.0.4.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered vendor/bundle/ruby/2.7.0/gems/railties-6.0.4.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 14.5ms | Allocations: 185)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 882)
+
+
+Started GET "/books/1" for ::1 at 2022-05-05 10:23:03 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:24:in `set_book'
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 13)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 16.3ms | ActiveRecord: 0.7ms | Allocations: 10798)
+
+
+Started GET "/books/1.json" for ::1 at 2022-05-05 10:23:08 +0900
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:24:in `set_book'
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 1032)
+
+
+Started GET "/books/1" for ::1 at 2022-05-05 10:32:13 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:24:in `set_book'
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 123)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 53.5ms | ActiveRecord: 0.7ms | Allocations: 5378)
+
+
