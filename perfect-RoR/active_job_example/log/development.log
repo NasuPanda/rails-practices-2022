@@ -15,3 +15,82 @@ Migrating to CreateAsyncLogs (20220505125147)
   [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[ActiveJob] Enqueued AsyncLogJob (Job ID: c8cb1985-af84-4f6a-957c-9980baa7d51d) to Async(default)
+[ActiveJob] [AsyncLogJob] [c8cb1985-af84-4f6a-957c-9980baa7d51d] Performing AsyncLogJob (Job ID: c8cb1985-af84-4f6a-957c-9980baa7d51d) from Async(default) enqueued at 2022-05-05T12:58:33Z
+[ActiveJob] [AsyncLogJob] [c8cb1985-af84-4f6a-957c-9980baa7d51d]   [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+[ActiveJob] [AsyncLogJob] [c8cb1985-af84-4f6a-957c-9980baa7d51d]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [AsyncLogJob] [c8cb1985-af84-4f6a-957c-9980baa7d51d]   [1m[36mAsyncLog Create (1.3ms)[0m  [1m[32mINSERT INTO "async_logs" ("message", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["message", "hello"], ["created_at", "2022-05-05 12:58:33.974528"], ["updated_at", "2022-05-05 12:58:33.974528"]]
+[ActiveJob] [AsyncLogJob] [c8cb1985-af84-4f6a-957c-9980baa7d51d]   [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [AsyncLogJob] [c8cb1985-af84-4f6a-957c-9980baa7d51d] Performed AsyncLogJob (Job ID: c8cb1985-af84-4f6a-957c-9980baa7d51d) from Async(default) in 59.84ms
+  [1m[36mAsyncLog Load (0.4ms)[0m  [1m[34mSELECT "async_logs".* FROM "async_logs" ORDER BY "async_logs"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+[ActiveJob] Enqueued AsyncLogJob (Job ID: 4c41eb1b-e175-472d-8864-7d4d04d26f24) to Async(default) with arguments: "hogehoge"
+[ActiveJob] [AsyncLogJob] [4c41eb1b-e175-472d-8864-7d4d04d26f24] Performing AsyncLogJob (Job ID: 4c41eb1b-e175-472d-8864-7d4d04d26f24) from Async(default) enqueued at 2022-05-05T12:59:08Z with arguments: "hogehoge"
+[ActiveJob] [AsyncLogJob] [4c41eb1b-e175-472d-8864-7d4d04d26f24] Error performing AsyncLogJob (Job ID: 4c41eb1b-e175-472d-8864-7d4d04d26f24) from Async(default) in 0.41ms: ArgumentError (wrong number of arguments (given 1, expected 0)):
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/app/jobs/async_log_job.rb:5:in `perform'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/execution.rb:40:in `block in perform_now'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/i18n-1.10.0/lib/i18n.rb:328:in `with_locale'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/callbacks.rb:121:in `instance_exec'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/callbacks.rb:121:in `instance_exec'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/notifications.rb:180:in `block in instrument'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/notifications.rb:180:in `instrument'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/logging.rb:45:in `block in tag_logger'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/tagged_logging.rb:28:in `tagged'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/tagged_logging.rb:80:in `tagged'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/logging.rb:45:in `tag_logger'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/callbacks.rb:121:in `instance_exec'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/execution.rb:39:in `perform_now'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/execution.rb:25:in `block in execute'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/execution_wrapper.rb:91:in `wrap'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/reloader.rb:72:in `block in wrap'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/execution_wrapper.rb:91:in `wrap'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/reloader.rb:71:in `wrap'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/callbacks.rb:121:in `instance_exec'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/execution.rb:23:in `execute'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/activejob-6.0.4.8/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `run_task'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:343:in `block (3 levels) in create_worker'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `loop'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block (2 levels) in create_worker'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `catch'
+/Users/westen/rdev/rails-practices-2022/perfect-RoR/active_job_example/vendor/bundle/ruby/2.7.0/gems/concurrent-ruby-1.1.10/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:333:in `block in create_worker'
+  [1m[36mAsyncLog Load (0.3ms)[0m  [1m[34mSELECT "async_logs".* FROM "async_logs" ORDER BY "async_logs"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+[ActiveJob] Enqueued AsyncLogJob (Job ID: b13d3c9f-1254-4026-944b-f80d5f9b799e) to Async(default) with arguments: {:message=>"hogehoge"}
+[ActiveJob] [AsyncLogJob] [b13d3c9f-1254-4026-944b-f80d5f9b799e] Performing AsyncLogJob (Job ID: b13d3c9f-1254-4026-944b-f80d5f9b799e) from Async(default) enqueued at 2022-05-05T12:59:22Z with arguments: {:message=>"hogehoge"}
+[ActiveJob] [AsyncLogJob] [b13d3c9f-1254-4026-944b-f80d5f9b799e]   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+[ActiveJob] [AsyncLogJob] [b13d3c9f-1254-4026-944b-f80d5f9b799e]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [AsyncLogJob] [b13d3c9f-1254-4026-944b-f80d5f9b799e]   [1m[36mAsyncLog Create (0.7ms)[0m  [1m[32mINSERT INTO "async_logs" ("message", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["message", "hogehoge"], ["created_at", "2022-05-05 12:59:22.721641"], ["updated_at", "2022-05-05 12:59:22.721641"]]
+[ActiveJob] [AsyncLogJob] [b13d3c9f-1254-4026-944b-f80d5f9b799e]   [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [AsyncLogJob] [b13d3c9f-1254-4026-944b-f80d5f9b799e] Performed AsyncLogJob (Job ID: b13d3c9f-1254-4026-944b-f80d5f9b799e) from Async(default) in 5.97ms
+  [1m[36mAsyncLog Load (0.2ms)[0m  [1m[34mSELECT "async_logs".* FROM "async_logs" ORDER BY "async_logs"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+[ActiveJob] Enqueued AsyncLogJob (Job ID: c2070698-8ade-4298-8ee2-cf2838fdfaaf) to Async(default)
+[ActiveJob] [AsyncLogJob] [c2070698-8ade-4298-8ee2-cf2838fdfaaf] Performing AsyncLogJob (Job ID: c2070698-8ade-4298-8ee2-cf2838fdfaaf) from Async(default) enqueued at 2022-05-05T12:59:45Z
+[ActiveJob] [AsyncLogJob] [c2070698-8ade-4298-8ee2-cf2838fdfaaf]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [AsyncLogJob] [c2070698-8ade-4298-8ee2-cf2838fdfaaf]   [1m[36mAsyncLog Create (1.4ms)[0m  [1m[32mINSERT INTO "async_logs" ("message", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["message", "hello"], ["created_at", "2022-05-05 12:59:45.383810"], ["updated_at", "2022-05-05 12:59:45.383810"]]
+[ActiveJob] [AsyncLogJob] [c2070698-8ade-4298-8ee2-cf2838fdfaaf]   [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [AsyncLogJob] [c2070698-8ade-4298-8ee2-cf2838fdfaaf] Performed AsyncLogJob (Job ID: c2070698-8ade-4298-8ee2-cf2838fdfaaf) from Async(default) in 5.36ms
+  [1m[36mAsyncLog Load (0.1ms)[0m  [1m[34mSELECT "async_logs".* FROM "async_logs" ORDER BY "async_logs"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+[ActiveJob] Enqueued AsyncLogJob (Job ID: 0a2062d9-6e32-4a87-8d6b-01313cb6fa80) to Async(default) at 2022-05-05 13:02:07 UTC
+  [1m[36mAsyncLog Load (0.3ms)[0m  [1m[34mSELECT "async_logs".* FROM "async_logs" ORDER BY "async_logs"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+[ActiveJob] [AsyncLogJob] [0a2062d9-6e32-4a87-8d6b-01313cb6fa80] Performing AsyncLogJob (Job ID: 0a2062d9-6e32-4a87-8d6b-01313cb6fa80) from Async(default) enqueued at 2022-05-05T13:01:37Z
+[ActiveJob] [AsyncLogJob] [0a2062d9-6e32-4a87-8d6b-01313cb6fa80]   [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [AsyncLogJob] [0a2062d9-6e32-4a87-8d6b-01313cb6fa80]   [1m[36mAsyncLog Create (0.8ms)[0m  [1m[32mINSERT INTO "async_logs" ("message", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["message", "hello"], ["created_at", "2022-05-05 13:02:07.847869"], ["updated_at", "2022-05-05 13:02:07.847869"]]
+[ActiveJob] [AsyncLogJob] [0a2062d9-6e32-4a87-8d6b-01313cb6fa80]   [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [AsyncLogJob] [0a2062d9-6e32-4a87-8d6b-01313cb6fa80] Performed AsyncLogJob (Job ID: 0a2062d9-6e32-4a87-8d6b-01313cb6fa80) from Async(default) in 5.66ms
