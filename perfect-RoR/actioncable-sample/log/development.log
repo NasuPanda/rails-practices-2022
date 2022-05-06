@@ -97,3 +97,261 @@ Entrypoint application = js/application-4ff707c731c80cbe6d96.js js/application-4
 Completed 200 OK in 5588ms (Views: 5570.1ms | ActiveRecord: 1.3ms | Allocations: 25193)
 
 
+Started GET "/rooms/show" for ::1 at 2022-05-06 15:45:16 +0900
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:3
+  Rendered collection of messages/_message.html.erb [1 times] (Duration: 0.9ms | Allocations: 116)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 13.6ms | Allocations: 3790)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/public/packs
+[Webpacker] Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+
+[Webpacker] Hash: 4ebe219df408d4875600
+Version: webpack 4.46.0
+Time: 1309ms
+Built at: 2022/05/06 15:45:20
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-5f1a0f8943e2a043da74.js    149 KiB  application  [emitted] [immutable]  application
+js/application-5f1a0f8943e2a043da74.js.map    166 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-5f1a0f8943e2a043da74.js js/application-5f1a0f8943e2a043da74.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 182 bytes {application} [built]
+[./app/javascript/channels/consumer.js] 265 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/channels/room_channel.js] 479 bytes {application} [optional] [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 4 hidden modules
+
+Completed 200 OK in 3393ms (Views: 3382.0ms | ActiveRecord: 1.7ms | Allocations: 12992)
+
+
+Started GET "/cable" for ::1 at 2022-05-06 15:45:20 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2022-05-06 15:45:20 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+Started GET "/cable" for ::1 at 2022-05-06 15:54:21 +0900
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2022-05-06 15:54:21 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/rooms/show" for ::1 at 2022-05-06 15:55:45 +0900
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:3
+  Rendered collection of messages/_message.html.erb [1 times] (Duration: 0.9ms | Allocations: 116)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 14.2ms | Allocations: 3790)
+[Webpacker] Compiling...
+Started GET "/cable" for ::1 at 2022-05-06 15:55:46 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2022-05-06 15:55:46 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+[Webpacker] Compiled all packs in /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/public/packs
+[Webpacker] Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+
+[Webpacker] Hash: dfb1897c952adad93264
+Version: webpack 4.46.0
+Time: 1376ms
+Built at: 2022/05/06 15:55:49
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-f61fd2ca67577a6f5ad1.js    149 KiB  application  [emitted] [immutable]  application
+js/application-f61fd2ca67577a6f5ad1.js.map    166 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-f61fd2ca67577a6f5ad1.js js/application-f61fd2ca67577a6f5ad1.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 182 bytes {application} [built]
+[./app/javascript/channels/consumer.js] 265 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/channels/room_channel.js] 533 bytes {application} [optional] [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 4 hidden modules
+
+Completed 200 OK in 3932ms (Views: 3920.2ms | ActiveRecord: 1.9ms | Allocations: 21223)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2022-05-06 15:55:49 +0900
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2022-05-06 15:55:49 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2022-05-06 15:55:49 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+RoomChannel#speak({"message"=>{}})
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"RoomChannel\"}", "data"=>"{\"message\":{},\"action\":\"speak\"}"}) [NameError - undefined local variable or method `data' for #<RoomChannel:0x00007ff0584730b0>]: /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/app/channels/room_channel.rb:11:in `speak' | /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/vendor/bundle/ruby/2.7.0/gems/actioncable-6.0.4.8/lib/action_cable/channel/base.rb:270:in `public_send' | /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/vendor/bundle/ruby/2.7.0/gems/actioncable-6.0.4.8/lib/action_cable/channel/base.rb:270:in `dispatch_action' | /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/vendor/bundle/ruby/2.7.0/gems/actioncable-6.0.4.8/lib/action_cable/channel/base.rb:170:in `block in perform_action' | /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/notifications.rb:182:in `instrument'
+RoomChannel#speak({"message"=>{}})
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"RoomChannel\"}", "data"=>"{\"message\":{},\"action\":\"speak\"}"}) [NameError - undefined local variable or method `data' for #<RoomChannel:0x00007ff0584730b0>]: /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/app/channels/room_channel.rb:11:in `speak' | /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/vendor/bundle/ruby/2.7.0/gems/actioncable-6.0.4.8/lib/action_cable/channel/base.rb:270:in `public_send' | /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/vendor/bundle/ruby/2.7.0/gems/actioncable-6.0.4.8/lib/action_cable/channel/base.rb:270:in `dispatch_action' | /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/vendor/bundle/ruby/2.7.0/gems/actioncable-6.0.4.8/lib/action_cable/channel/base.rb:170:in `block in perform_action' | /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/vendor/bundle/ruby/2.7.0/gems/activesupport-6.0.4.8/lib/active_support/notifications.rb:182:in `instrument'
+Started GET "/rooms/show" for ::1 at 2022-05-06 16:03:24 +0900
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:3
+  Rendered collection of messages/_message.html.erb [1 times] (Duration: 1.2ms | Allocations: 116)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 19.4ms | Allocations: 3790)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 75ms (Views: 62.0ms | ActiveRecord: 2.2ms | Allocations: 11774)
+
+
+Started GET "/cable" for ::1 at 2022-05-06 16:03:24 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2022-05-06 16:03:24 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+RoomChannel#speak({"message"=>{}})
+[ActionCable] Broadcasting to room_channel: {:message=>{}}
+RoomChannel transmitting {"message"=>{}} (via streamed from room_channel)
+RoomChannel#speak({"message"=>{}})
+[ActionCable] Broadcasting to room_channel: {:message=>{}}
+RoomChannel transmitting {"message"=>{}} (via streamed from room_channel)
+Started GET "/cable" for ::1 at 2022-05-06 16:04:06 +0900
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2022-05-06 16:04:06 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/rooms/show" for ::1 at 2022-05-06 16:04:14 +0900
+Processing by RoomsController#show as HTML
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:3
+  Rendered collection of messages/_message.html.erb [1 times] (Duration: 2.1ms | Allocations: 115)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 26.2ms | Allocations: 3797)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/public/packs
+[Webpacker] Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+
+[Webpacker] Hash: e81959f778890e0821df
+Version: webpack 4.46.0
+Time: 1330ms
+Built at: 2022/05/06 16:04:18
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-3ea00cb84cd42a1eca52.js    149 KiB  application  [emitted] [immutable]  application
+js/application-3ea00cb84cd42a1eca52.js.map    166 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-3ea00cb84cd42a1eca52.js js/application-3ea00cb84cd42a1eca52.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 182 bytes {application} [built]
+[./app/javascript/channels/consumer.js] 265 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/channels/room_channel.js] 556 bytes {application} [optional] [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 4 hidden modules
+
+Completed 200 OK in 4395ms (Views: 4377.0ms | ActiveRecord: 3.0ms | Allocations: 13256)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2022-05-06 16:04:18 +0900
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2022-05-06 16:04:19 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2022-05-06 16:04:19 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+RoomChannel#speak({"message"=>{}})
+[ActionCable] Broadcasting to room_channel: {:message=>{}}
+RoomChannel transmitting {"message"=>{}} (via streamed from room_channel)
+Started GET "/cable" for ::1 at 2022-05-06 16:05:06 +0900
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2022-05-06 16:05:06 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/rooms/show" for ::1 at 2022-05-06 16:06:22 +0900
+Processing by RoomsController#show as HTML
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/rooms/show.html.erb:3
+  Rendered collection of messages/_message.html.erb [1 times] (Duration: 11.5ms | Allocations: 115)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 24.6ms | Allocations: 3797)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/westen/rdev/rails-practices-2022/perfect-RoR/actioncable-sample/public/packs
+[Webpacker] Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+
+[Webpacker] Hash: 7c874346722026d6b352
+Version: webpack 4.46.0
+Time: 1292ms
+Built at: 2022/05/06 16:06:26
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-dbb3be8a482c3e9bf950.js    149 KiB  application  [emitted] [immutable]  application
+js/application-dbb3be8a482c3e9bf950.js.map    166 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-dbb3be8a482c3e9bf950.js js/application-dbb3be8a482c3e9bf950.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 182 bytes {application} [built]
+[./app/javascript/channels/consumer.js] 265 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/channels/room_channel.js] 558 bytes {application} [optional] [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 4 hidden modules
+
+Completed 200 OK in 4580ms (Views: 4568.1ms | ActiveRecord: 1.4ms | Allocations: 13086)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2022-05-06 16:06:27 +0900
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2022-05-06 16:06:27 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2022-05-06 16:06:27 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+RoomChannel#speak({"message"=>{}})
+[ActionCable] Broadcasting to room_channel: {:message=>{}}
+RoomChannel transmitting {"message"=>{}} (via streamed from room_channel)
