@@ -1,5 +1,6 @@
 .DS_Store
 /vendor/*
+perfect-RoR/awesome_events/config/initializers/omniauth.rb
 
 *.rbc
 capybara-*.html
