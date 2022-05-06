@@ -1,0 +1,25 @@
+<%= form_with(model: message, local: true) do |form| %>
+  <% if message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+        <% message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%# ここから追加 %>
+  <div class="field">
+    <%= form.label :content %>
+    <%# rich_text_areを利用すると、content編集用のフィールドがtrixを利用したもので表示される %>
+    <%= form.rich_text_area :content %>
+  </div>
+  <%# ここまで追加 %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
