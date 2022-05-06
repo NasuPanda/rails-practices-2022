@@ -36,6 +36,11 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # ファイルとして保存する(動作確認用)
+  config.action_mailer.delivery_method = :file
+  # ファイル保存パスの指定(デフォルトはtmp/mails以下)
+  config.action_mailer.file_settings = { location: Rails.root.join('log/mails') }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
