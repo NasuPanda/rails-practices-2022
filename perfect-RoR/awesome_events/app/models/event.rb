@@ -1,4 +1,8 @@
 class Event < ApplicationRecord
+  attr_accessor :remove_image
+  before_save :remove_image_if_user_accept
+
+  has_one_attached :image, dependent: false
   belongs_to :owner, class_name: "User"
   # 親レコードが削除された時、一緒に削除される
   has_many :tickets, dependent: :destroy
@@ -24,5 +28,10 @@ class Event < ApplicationRecord
       if start_at >= end_at
         errors.add(:start_at, "は終了時間よりも前に設定してください")
       end
+    end
+
+    # remove_imageがtrueであれば画像をnilにする
+    def remove_image_if_user_accept
+      self.image = nil if ActiveRecord::Type::Boolean.new.cast(remove_image)
     end
 end

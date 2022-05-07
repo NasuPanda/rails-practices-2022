@@ -27,5 +27,7 @@ module AwesomeEvents
     config.time_zone = "Tokyo"
     # ロケール情報を変更し、ラベルとエラーメッセージが日本語になるようにする
     config.i18n.default_locale = :ja
+    # active storageで使う画像処理用ツールをlibvipsに変更
+    config.active_storage.variant_processor = :vips
   end
 end
