@@ -1,1 +1,2 @@
+<%# createアクションがエラーになるとデフォルトの挙動である「create」にマッチするビューテンプレートの描画を行う。その時にこのjs.erbファイルが選択される。 %>
 document.getElementById("errors").innerHTML = "<%= j render("errors", errors: @event.errors) %>"
