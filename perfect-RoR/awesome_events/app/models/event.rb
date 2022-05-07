@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :owner, class_name: "User"
-  has_many :tickets
+  # 親レコードが削除された時、一緒に削除される
+  has_many :tickets, dependent: :destroy
 
   validates :name, length: { maximum:50 }, presence: true
   validates :place, length: { maximum:100 }, presence: true
