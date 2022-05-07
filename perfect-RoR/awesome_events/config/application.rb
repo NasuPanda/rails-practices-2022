@@ -23,6 +23,9 @@ module AwesomeEvents
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    # タイムゾーンの設定
     config.time_zone = "Tokyo"
+    # ロケール情報を変更し、ラベルとエラーメッセージが日本語になるようにする
+    config.i18n.default_locale = :ja
   end
 end
