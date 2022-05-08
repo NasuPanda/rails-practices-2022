@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
 
   # 開始日時順にソートした未開催のイベントを取得
   def index
-    @events = Event.where("start_at > ?", Time.zone.now).order(:start_at)
+    @events = Event.page(params[:page]).per(10).
+      where("start_at > ?", Time.zone.now).order(:start_at)
   end
 end
