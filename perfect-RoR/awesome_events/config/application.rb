@@ -29,5 +29,9 @@ module AwesomeEvents
     config.i18n.default_locale = :ja
     # active storageで使う画像処理用ツールをlibvipsに変更
     config.active_storage.variant_processor = :vips
+    # Rack Middleware エラーハンドリング
+    config.action_dispatch.rescue_responses.merge!(
+      "NewException" => :not_found
+    )
   end
 end
