@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From:</strong>
+  <%= @bank_account_money_transfer.from_id %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @bank_account_money_transfer.to_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @bank_account_money_transfer.amount %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @bank_account_money_transfer.currency %>
+</p>
+
+<%= link_to 'Back', bank_account_money_transfers_path %>

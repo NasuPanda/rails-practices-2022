@@ -1,0 +1,7 @@
+version: '3'
+services:
+  parfect_rails_h2o:
+    build: "./docker"
+    restart: "no"
+    ports:
+      - 9090:9090

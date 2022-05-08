@@ -1,0 +1,41 @@
+<h1>New User Registration</h1>
+
+<%= form_with(model: @user_registration_form, url: user_registrations_path, local: true) do |form| %>
+  <% if @user_registration_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_registration_form.errors.count, "error") %> prohibited this user from being registered:</h2>
+
+      <ul>
+        <% @user_registration_form.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :terms_of_service do %>
+      <%= form.check_box :terms_of_service %>
+      I accept the <%= link_to "Terms of Service", terms_path %>.
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Submit" %>
+  </div>
+<% end %>

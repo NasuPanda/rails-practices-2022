@@ -1,0 +1,41 @@
+<h1>New Bank Account Money Transfer</h1>
+
+<%= form_with(model: @bank_account_money_transfer, local: true) do |form| %>
+  <% if @bank_account_money_transfer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bank_account_money_transfer.errors.count, "error") %> prohibited this bank_account_money_transfer from being saved:</h2>
+
+      <ul>
+        <% @bank_account_money_transfer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :from_id %>
+    <%= form.text_field :from_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :to_id %>
+    <%= form.text_field :to_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currency %>
+    <%= form.text_field :currency %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', bank_account_money_transfers_path %>

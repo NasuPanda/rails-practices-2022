@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bank Account Money Transfers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>To</th>
+      <th>Amount</th>
+      <th>Currency</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bank_account_money_transfers.each do |bank_account_money_transfer| %>
+      <tr>
+        <td><%= bank_account_money_transfer.from_id %></td>
+        <td><%= bank_account_money_transfer.to_id %></td>
+        <td><%= bank_account_money_transfer.amount %></td>
+        <td><%= bank_account_money_transfer.currency %></td>
+        <td><%= link_to 'Show', bank_account_money_transfer %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bank Account Money Transfer', new_bank_account_money_transfer_path %>

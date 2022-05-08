@@ -1,0 +1,8 @@
+version: '3'
+services:
+  parfect_rails_redis:
+    image: redis
+    container_name: parfect_rails_redis
+    restart: "no"
+    ports:
+      - 6379:6379

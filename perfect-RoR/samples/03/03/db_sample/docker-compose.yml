@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  mysql_master:
+    image: mysql:8.0.19
+    ports:
+      - "33061:3306"
+    volumes:
+      - ./docker/mysql/data/master/:/var/lib/mysql/
+      - ./docker/mysql/master.cnf:/etc/mysql/conf.d/master.cnf
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  mysql_slave:
+    image: mysql:8.0.19
+    ports:
+      - "33062:3306"
+    volumes:
+      - ./docker/mysql/data/slave/:/var/lib/mysql/
+      - ./docker/mysql/slave.cnf:/etc/mysql/conf.d/slave.cnf
+      - ./docker/mysql/start-slave.sh:/docker-entrypoint-initdb.d/start-slave.sh
+    depends_on:
+      - mysql_master
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"

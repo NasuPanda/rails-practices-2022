@@ -1,0 +1,1 @@
+json.partial! "bank_account_money_transfers/bank_account_money_transfer", bank_account_money_transfer: @bank_account_money_transfer

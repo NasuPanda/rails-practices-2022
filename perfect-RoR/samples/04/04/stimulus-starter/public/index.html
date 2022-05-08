@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="main.css">
+  <script src="bundle.js" async></script>
+</head>
+<body>
+  <h1 data-controller="example"></h1>
+  <div data-controller="hello">
+    <input data-target="hello.name" type="text">
+    <button data-action="click->hello#greet">
+      Greet
+    </button>
+    <span data-target="hello.output"></span>
+  </div>
+
+  <div data-controller="key"
+       data-action="keypress@window->key#showkeyCode">
+  </div>
+</body>
+</html>
