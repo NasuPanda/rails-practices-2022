@@ -1,5 +1,5 @@
 # Node.jsダウンロード用ビルドステージ
-FROM ruby:2.6.6 AS nodejs
+FROM ruby:2.7.0 AS nodejs
 
 WORKDIR /tmp
 
@@ -9,7 +9,7 @@ RUN tar xvf node-v12.14.1-linux-x64.tar.xz
 RUN mv node-v12.14.1-linux-x64 node
 
 # Railsプロジェクトインストール
-FROM ruby:2.6.6
+FROM ruby:2.7.0
 
 # nodejsをインストールしたイメージからnode.jsをコピーする
 COPY --from=nodejs /tmp/node /opt/node

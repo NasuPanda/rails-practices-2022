@@ -1,5 +1,5 @@
 current directory: /Users/westen/rdev/rails-practices-2022/docker-sample/vendor/bundle/ruby/2.7.0/gems/nio4r-2.5.8/ext/nio4r
-/Users/westen/.anyenv/envs/rbenv/versions/2.7.0/bin/ruby -I /Users/westen/.anyenv/envs/rbenv/versions/2.7.0/lib/ruby/2.7.0 -r ./siteconf20220508-31029-c6qq3c.rb extconf.rb
+/Users/westen/.anyenv/envs/rbenv/versions/2.7.0/bin/ruby -I /Users/westen/.anyenv/envs/rbenv/versions/2.7.0/lib/ruby/2.7.0 -r ./siteconf20220508-38026-1hal4jc.rb extconf.rb
 checking for unistd.h... yes
 checking for linux/aio_abi.h... no
 checking for linux/io_uring.h... no
@@ -3550,4 +3550,4 @@ linking shared-object nio4r_ext.bundle
 
 current directory: /Users/westen/rdev/rails-practices-2022/docker-sample/vendor/bundle/ruby/2.7.0/gems/nio4r-2.5.8/ext/nio4r
 make "DESTDIR=" install
-/usr/local/bin/ginstall -c -m 0755 nio4r_ext.bundle ./.gem.20220508-31029-18llhss
+/usr/local/bin/ginstall -c -m 0755 nio4r_ext.bundle ./.gem.20220508-38026-maaxnf

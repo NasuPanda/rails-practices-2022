@@ -1,5 +1,5 @@
 current directory: /Users/westen/rdev/rails-practices-2022/docker-sample/vendor/bundle/ruby/2.7.0/gems/sassc-2.4.0/ext
-/Users/westen/.anyenv/envs/rbenv/versions/2.7.0/bin/ruby -I /Users/westen/.anyenv/envs/rbenv/versions/2.7.0/lib/ruby/2.7.0 -r ./siteconf20220508-31029-twiu43.rb extconf.rb
+/Users/westen/.anyenv/envs/rbenv/versions/2.7.0/bin/ruby -I /Users/westen/.anyenv/envs/rbenv/versions/2.7.0/lib/ruby/2.7.0 -r ./siteconf20220508-38026-55gyx1.rb extconf.rb
 creating Makefile
 
 current directory: /Users/westen/rdev/rails-practices-2022/docker-sample/vendor/bundle/ruby/2.7.0/gems/sassc-2.4.0/ext
@@ -77,4 +77,4 @@ linking shared-object sassc/libsass.bundle
 
 current directory: /Users/westen/rdev/rails-practices-2022/docker-sample/vendor/bundle/ruby/2.7.0/gems/sassc-2.4.0/ext
 make "DESTDIR=" install
-/usr/local/bin/ginstall -c -m 0755 libsass.bundle ./.gem.20220508-31029-5o00qk/sassc
+/usr/local/bin/ginstall -c -m 0755 libsass.bundle ./.gem.20220508-38026-1oe28uk/sassc
