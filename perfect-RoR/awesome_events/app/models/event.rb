@@ -1,4 +1,7 @@
 class Event < ApplicationRecord
+  # elasticsearch用の設定(検索にkuromojiを利用する)
+  searchkick language: "japanese"
+
   attr_accessor :remove_image
   before_save :remove_image_if_user_accept
 
@@ -16,6 +19,17 @@ class Event < ApplicationRecord
     content_type: [:png, :jpg, :jpeg],
     size: { less_than_or_equal_to: 10.megabytes },
     dimension: { width: { max: 2000 }, height: { max: 2000 } }
+
+  # elasticsearch用設定(検索フォームで入力するキーワードにマッチさせる情報)
+  def search_data
+    {
+      name: name,
+      place: place,
+      content: content,
+      owner_name: owner&.name,
+      start_at: start_at
+    }
+  end
 
   def created_by?(user)
     return false unless user

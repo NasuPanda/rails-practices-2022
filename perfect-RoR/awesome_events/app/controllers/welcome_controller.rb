@@ -6,4 +6,10 @@ class WelcomeController < ApplicationController
     @events = Event.page(params[:page]).per(10).
       where("start_at > ?", Time.zone.now).order(:start_at)
   end
+
+  private
+
+    def event_search_form_params
+      params.fetch(:event_search_form, {}).permit(:keyword, :start_at).merge(page: params[:page])
+    end
 end
