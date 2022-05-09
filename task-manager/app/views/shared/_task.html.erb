@@ -1,0 +1,20 @@
+<h3>
+  <strong>名前: </strong>
+  <%= task.name %>
+</h3>
+<p>
+  <strong>説明: </strong>
+  <%= task.description %>
+</p>
+<p>
+  <strong>期日: </strong>
+  <%= task.due_on %>
+</p>
+<p>
+  <strong>終了ステータス: </strong>
+  <% if task.completed %>
+    終了
+  <% else %>
+    進行中
+  <% end %>
+</p>
