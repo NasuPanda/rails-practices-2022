@@ -13,9 +13,10 @@
     <header>
       <nav>
         <% if user_signed_in? %>
-          こんにちは, <%= current_user.email %>さん
             <%= link_to '登録情報編集', edit_user_registration_path %>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+            <%= link_to 'タスク一覧', tasks_path %>
+            <%= link_to '新規タスク作成', new_task_path %>
           <% else %>
             <%= link_to 'サインアップ', new_user_registration_path %>
             <%= link_to 'ログイン', new_user_session_path %>

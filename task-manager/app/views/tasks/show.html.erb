@@ -1,23 +1,4 @@
-<h1>
-  タスク詳細
-</h1>
-<p>
-  <strong>名前: </strong>
-  <%= @task.name %>
-</p>
-<p>
-  <strong>説明: </strong>
-  <%= @task.description %>
-</p>
-<p>
-  <strong>期日: </strong>
-  <%= @task.due_on %>
-</p>
-<p>
-  <strong>終了ステータス: </strong>
-  <% if @task.completed %>
-    終了
-  <% else %>
-    進行中
-  <% end %>
-</p>
+<h1>タスク詳細</h1>
+<%= render partial: 'task', locals: { task: @task } %>
+<%= link_to 'タスクの編集', edit_task_path(@task) %>
+<%= link_to 'タスクの削除', @task, method: :delete, data: { confirm: "本当に削除しますか?" } %>
