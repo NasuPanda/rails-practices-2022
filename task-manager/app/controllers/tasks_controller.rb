@@ -18,11 +18,11 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = Task.new(task_params)
+    @task = Task.new(@task_params)
     # completedを真偽値にキャストする
-    task.completed = ActiveRecord::Type::Boolean.new.cast(task.completed)
-    task.user_id = current_user.id
-    if task.save
+    @task.completed = ActiveRecord::Type::Boolean.new.cast(task.completed)
+    @task.user_id = current_user.id
+    if @task.save
       flash[:notice] = "タスクの作成に成功しました"
       redirect_to task
     else
@@ -32,12 +32,23 @@ class TasksController < ApplicationController
   end
 
   def update
-    task = Task.find(params[:id])
-    if task.update(task_params)
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
       flash[:notice] = "タスクを編集しました"
-      redirect_to task
+      redirect_to @task
     else
       render 'edit'
+    end
+  end
+
+  def destroy
+    @task = Task.find(params[:id])
+    if @task.destroy
+      flash[:notice] = "削除しました"
+      redirect_to tasks_path
+    else
+      flash[:alert] = "削除に失敗しました"
+      render @task
     end
   end
 
