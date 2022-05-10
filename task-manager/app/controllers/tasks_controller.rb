@@ -18,13 +18,13 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(@task_params)
+    @task = Task.new(task_params)
     # completedを真偽値にキャストする
-    @task.completed = ActiveRecord::Type::Boolean.new.cast(task.completed)
+    @task.completed = ActiveRecord::Type::Boolean.new.cast(@task.completed)
     @task.user_id = current_user.id
     if @task.save
       flash[:notice] = "タスクの作成に成功しました"
-      redirect_to task
+      redirect_to @task
     else
       flash[:alert] = "タスクの作成に失敗しました"
       render 'new'
