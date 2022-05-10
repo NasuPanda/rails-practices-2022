@@ -27,7 +27,7 @@ class TasksController < ApplicationController
       redirect_to @task
     else
       flash[:alert] = "タスクの作成に失敗しました"
-      render 'new'
+      redirect_to new_task_path
     end
   end
 
@@ -37,7 +37,7 @@ class TasksController < ApplicationController
       flash[:notice] = "タスクを編集しました"
       redirect_to @task
     else
-      render 'edit'
+      redirect_to edit_task_path
     end
   end
 
@@ -48,7 +48,7 @@ class TasksController < ApplicationController
       redirect_to tasks_path
     else
       flash[:alert] = "削除に失敗しました"
-      render @task
+      redirect_to @task
     end
   end
 
