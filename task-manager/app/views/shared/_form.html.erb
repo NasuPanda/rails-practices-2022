@@ -1,0 +1,21 @@
+<%= form_with model: @task, local: true do |form| %>
+  <div class="form-item">
+    <%= form.text_field :name %>
+    <%= form.label :name, "プロジェクト名" %>
+  </div>
+  <div class="form-item">
+    <%= form.text_field :description %>
+    <%= form.label :description, "プロジェクト概要" %>
+  </div>
+  <div class="form-item">
+    <%= form.date_field :due_on %>
+    <%= form.label :due_on, "期日" %>
+  </div>
+  <div class="form-item">
+    <%= form.check_box :completed %>
+    <%= form.label :completed, "プロジェクトの状態" %>
+  </div>
+  <div class="form-item">
+    <%= form.submit %>
+  </div>
+<% end %>
