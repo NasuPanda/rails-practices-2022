@@ -68,5 +68,6 @@ RSpec.configure do |config|
 
   # Deviseのヘルパーメソッドをテストで利用する
   config.include Devise::Test::IntegrationHelpers, type: :system
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end
 

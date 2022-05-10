@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :tasks
   devise_for :users
+  resources :tasks
   root 'static_pages#welcome'
 end
