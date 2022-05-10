@@ -22,9 +22,12 @@
         <% end %>
       </nav>
     </header>
-    <%# devise フラッシュメッセージ表示用 %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%# フラッシュメッセージ表示用 %>
+    <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% elsif flash[:alert] %>
+      <p class="alert"><%= flash[:alert] %></p>
+    <% end %>
 
     <%= yield %>
   </body>

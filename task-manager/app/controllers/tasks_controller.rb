@@ -23,18 +23,18 @@ class TasksController < ApplicationController
     task.completed = ActiveRecord::Type::Boolean.new.cast(task.completed)
     task.user_id = current_user.id
     if task.save
-      redirect_to task
       flash[:notice] = "タスクの作成に成功しました"
+      redirect_to task
     else
-      render 'new'
       flash[:alert] = "タスクの作成に失敗しました"
+      render 'new'
     end
   end
 
   def update
     task = Task.find(params[:id])
     if task.update(task_params)
-      flash[:success] = "タスクを編集しました"
+      flash[:notice] = "タスクを編集しました"
       redirect_to task
     else
       render 'edit'
