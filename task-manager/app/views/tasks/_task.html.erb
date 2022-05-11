@@ -1,41 +1,23 @@
 <div class="card mb-2">
   <h5 class="card-header">
-    名前
+    <%= link_to task.name, task %>
   </h5>
   <div class="card-body">
-    <p class="card-text">
-      <%= link_to task.name, task %>
-    </p>
-  </div>
-</div>
-
-<div class="card mb-2">
-  <h5 class="card-header">
-    説明
-  </h5>
-  <div class="card-body">
+    <h5 class="card-title">
+      説明
+    </h5>
     <p class="card-text">
       <%= task.description %>
     </p>
-  </div>
-</div>
-
-<div class="card mb-2">
-  <h5 class="card-header">
-    期日
-  </h5>
-  <div class="card-body">
+    <h5 class="card-title">
+      期日
+    </h5>
     <p class="card-text">
       <%= task.due_on %>
     </p>
-  </div>
-</div>
-
-<div class="card mb-2">
-  <h5 class="card-header">
-    終了ステータス
-  </h5>
-  <div class="card-body">
+    <h5 class="card-title">
+      終了ステータス
+    </h5>
     <p class="card-text">
       <% if task.completed %>
         終了

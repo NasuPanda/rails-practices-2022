@@ -1,19 +1,19 @@
 <%= form_with model: @task, local: true, class: "form-horizontal" do |form| %>
   <div class="form-group">
-    <%= form.label :name, "プロジェクト名" %>
-    <%= form.text_field :name %>
+    <%= form.label :name, "プロジェクト名", class: "control-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= form.label :description, "プロジェクト概要" %>
-    <%= form.text_field :description %>
+    <%= form.label :description, "プロジェクト概要", class: "control-label" %>
+    <%= form.text_field :description, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= form.label :due_on, "期日" %>
-    <%= form.date_field :due_on %>
+    <%= form.label :due_on, "期日", class: "control-label" %>
+    <%= form.date_field :due_on, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= form.label :completed, "プロジェクトの状態" %>
-    <%= form.check_box :completed %>
+    <%= form.label :completed, "プロジェクトの状態", class: "control-label" %>
+    <%= form.check_box :completed, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= form.submit "登録", class: "btn btn-primary" %>
