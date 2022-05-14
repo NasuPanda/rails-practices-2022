@@ -13,10 +13,10 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-xl navbar-light bg-light">
+      <nav class="navbar navbar-light bg-light">
         <%= link_to "Task Manager", root_path, class: "navbar-brand" %>
         <% if user_signed_in? %>
-          <ul class="nav navbar-nav">
+          <ul class="navnavbar-nav">
             <li><%= link_to 'タスク一覧', tasks_path, class: "nav-link" %></li>
             <li><%= link_to '新規タスク作成', new_task_path, class: "nav-link" %></li>
           </ul>
